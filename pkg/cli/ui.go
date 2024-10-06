@@ -84,7 +84,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.state = "input"
 
 		case "d":
-			m.TodoList.Remove(m.TodoList.Todos[m.cursor].ID)
+			if len(m.TodoList.Todos) > 0 {
+				m.TodoList.Remove(m.TodoList.Todos[m.cursor].ID)
+			}
 		}
 
 	}
